@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <RateScore></RateScore> 
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -30,13 +31,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+<script setup>
+import RateScore from './RateScore.vue';
+import {defineProps} from 'vue';
+defineProps({
+  msg: {
+    type: String
   }
-}
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
