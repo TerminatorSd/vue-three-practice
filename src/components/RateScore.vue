@@ -1,12 +1,10 @@
 <template>
-  <div class="rate-score" :style="fontStyle">
-    <slot></slot>
-    <div class="rate" @mouseout="mouseOut">
-      <span @mouseover="mouseOver(num)" v-for="num in 5" :key="num">☆</span>
-      <span class="hollow" :style="fontWidth">
-        <span @mouseover="mouseOver(num)" @click="onRate(num)" v-for="num in 5" :key="num">⭐️</span>
-      </span>
-    </div>
+  <slot></slot>
+  <div class="rate" @mouseout="mouseOut" :style="fontStyle">
+    <span @mouseover="mouseOver(num)" v-for="num in 5" :key="num">☆</span>
+    <span class="hollow" :style="fontWidth">
+      <span @mouseover="mouseOver(num)" @click="onRate(num)" v-for="num in 5" :key="num">★</span>
+    </span>
   </div>
 </template>
 
@@ -25,7 +23,7 @@ let props = defineProps({
   modelValue: Number,
   theme: {
     type: String,
-    default: 'black'
+    default: 'orange'
   }
 })
 const fontStyle = computed(() => {
@@ -34,7 +32,7 @@ const fontStyle = computed(() => {
 
 let width = ref(props.modelValue);
 const fontWidth = computed(() => {
-  return `width: ${width.value}em;` 
+  return `width: ${width.value}em;`
 })
 const mouseOut = () => {
   width.value = props.modelValue;
@@ -55,7 +53,8 @@ const onRate = (num) => {
   position: relative;
   display: inline-block;
 }
-.rate > .hollow {
+
+.rate>.hollow {
   position: absolute;
   display: inline-block;
   top: 0;
