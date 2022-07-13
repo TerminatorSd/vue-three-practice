@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <RateScore></RateScore> 
+    <RateScore v-model="score">
+      <span class="movie-score">电影评分：</span>
+    </RateScore> 
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -33,12 +35,13 @@
 
 <script setup>
 import RateScore from './RateScore.vue';
-import {defineProps} from 'vue';
+import {defineProps, ref} from 'vue';
 defineProps({
   msg: {
     type: String
   }
 })
+let score = ref(3.5);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -56,5 +59,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.movie-score {
+  font-weight: bold;
+  margin-right: 5px;
 }
 </style>
