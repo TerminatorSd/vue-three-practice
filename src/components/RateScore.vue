@@ -28,11 +28,11 @@ let props = defineProps({
     default: 'black'
   }
 })
-let emits = defineEmits(['update:modelValue']);
-let width = ref(props.modelValue);
 const fontStyle = computed(() => {
   return `color: ${themeObj[props.theme]}`;
 })
+
+let width = ref(props.modelValue);
 const fontWidth = computed(() => {
   return `width: ${width.value}em;` 
 })
@@ -42,6 +42,8 @@ const mouseOut = () => {
 const mouseOver = (num) => {
   width.value = num;
 }
+
+let emits = defineEmits(['update:modelValue']);
 const onRate = (num) => {
   emits('update:modelValue', num)
 }
