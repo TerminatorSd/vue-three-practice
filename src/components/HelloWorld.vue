@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <TryH></TryH>
     <RateScore v-model="score">
       <span class="movie-score">电影评分：</span>
     </RateScore> 
@@ -35,6 +36,7 @@
 
 <script setup>
 import RateScore from './RateScore.vue';
+import TryH from './TryH.vue';
 import {defineProps, ref} from 'vue';
 defineProps({
   msg: {
